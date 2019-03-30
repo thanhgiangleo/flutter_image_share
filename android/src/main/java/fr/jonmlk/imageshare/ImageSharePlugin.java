@@ -40,7 +40,7 @@ public class ImageSharePlugin implements MethodCallHandler {
 
   private void shareFile(String path) {
     File imageFile = new File(this.currentActivity.getApplicationContext().getCacheDir(), path);
-    Uri contentUri = FileProvider.getUriForFile(this.currentActivity.getApplicationContext(), "fr.jonmlk.image_share", imageFile);
+    Uri contentUri = FileProvider.getUriForFile(this.currentActivity.getApplicationContext(), this.currentActivity.getPackageName(), imageFile);
     Intent shareIntent = new Intent(Intent.ACTION_SEND);
     shareIntent.setType("image/jpg");
     shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
