@@ -2,13 +2,14 @@
   package="fr.jonmlk.imageshare">
     <application>
         <provider
-            android:authorities="${applicationId}"
             android:name="androidx.core.content.FileProvider"
-            android:enabled="true"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
         </provider>
     </application>
 </manifest>
